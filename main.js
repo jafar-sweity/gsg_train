@@ -5,29 +5,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const apiUrl = "https://dummyjson.com/quotes";
 
-   
     fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
-        
             let quotes = data;
             if (Array.isArray(data)) {
-             
                 quotes = data;
             } else if (Array.isArray(data.quotes)) {
-                
                 quotes = data.quotes;
             } else {
-                
                 throw new Error("Invalid data structure");
             }
-           
+
             displayQuotes(quotes);
 
-          
             searchInput.addEventListener("input", function () {
                 const searchTerm = searchInput.value.toLowerCase();
-                const filteredQuotes = quotes.filter(quote => quote.toLowerCase().includes(searchTerm));
+                const filteredQuotes = quotes.filter(quote => quote.quote.toLowerCase().includes(searchTerm));
                 displayQuotes(filteredQuotes);
             });
         })
@@ -40,7 +34,9 @@ document.addEventListener("DOMContentLoaded", function () {
         quoteList.innerHTML = "";
         quotes.forEach(quote => {
             const li = document.createElement("li");
-            li.textContent = quote;
+            li.textContent = quote.quote;
+            li.innerHTML += "<h5>" + quote.author + "</h5>";
+
             quoteList.appendChild(li);
         });
     }

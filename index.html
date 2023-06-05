@@ -1,31 +1,55 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>Quote Search Filter</title>
+    <title>Quote Search</title>
     <style>
-        ul {
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #searchInput {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        #quoteList {
             list-style-type: none;
             padding: 0;
         }
 
-        li {
+        #quoteList li {
+            background-color: #f9f9f9;
+            padding: 10px;
             margin-bottom: 10px;
         }
 
-        .error {
+        #quoteList li h5 {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #777;
+        }
+
+        #errorMessage {
             color: red;
         }
     </style>
 </head>
-
 <body>
-    <h1>Quote Search Filter</h1>
-    <input type="text" id="searchInput" placeholder="Enter search text">
+    <h1>Quote Search</h1>
+    <input type="text" id="searchInput" placeholder="Search...">
     <ul id="quoteList"></ul>
-    <p id="errorMessage" class="error"></p>
+    <p id="errorMessage"></p>
 
-    <script src="main.js"></script>
+    <script src="main.js">
+        
+    </script>
 </body>
-
 </html>
